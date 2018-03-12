@@ -1,4 +1,5 @@
 // gzipped.go
+//下面的程序展示了如何读取一个 gzip 文件
 package main
 
 import (

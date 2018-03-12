@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -17,13 +18,15 @@ func main() {
 	}
 
 	fmt.Printf("Your name is %s", input)
-	// For Unix: test with delimiter "\n", for Windows: test with "\r\n"
+	input = strings.Replace(input, "\r", "", -1)
+	input = strings.Replace(input, "\n", "", -1)
+	// For Unix: test with delimiter "\n", for Windows: test with ""
 	switch input {
-	case "Philip\r\n":
+	case "Philip":
 		fmt.Println("Welcome Philip!")
-	case "Chris\r\n":
+	case "Chris":
 		fmt.Println("Welcome Chris!")
-	case "Ivo\r\n":
+	case "Ivo":
 		fmt.Println("Welcome Ivo!")
 	default:
 		fmt.Printf("You are not welcome here! Goodbye!")
@@ -31,11 +34,11 @@ func main() {
 
 	// version 2:
 	switch input {
-	case "Philip\r\n":
+	case "Philip":
 		fallthrough
-	case "Ivo\r\n":
+	case "Ivo":
 		fallthrough
-	case "Chris\r\n":
+	case "Chris":
 		fmt.Printf("Welcome %s\n", input)
 	default:
 		fmt.Printf("You are not welcome here! Goodbye!\n")
@@ -43,7 +46,7 @@ func main() {
 
 	// version 3:
 	switch input {
-	case "Philip\r\n", "Ivo\r\n":
+	case "Philip", "Ivo":
 		fmt.Printf("Welcome %s\n", input)
 	default:
 		fmt.Printf("You are not welcome here! Goodbye!\n")

@@ -19,10 +19,12 @@ func main() {
 	defer outputFile.Close()
 
 	outputWriter := bufio.NewWriter(outputFile)
-	outputString := "hello world!\n"
+	outputString := "hello world2!\n"
 
+	//先写到缓冲区
 	for i := 0; i < 10; i++ {
 		outputWriter.WriteString(outputString)
 	}
+	//缓冲区的内容被完全写入文件
 	outputWriter.Flush()
 }
