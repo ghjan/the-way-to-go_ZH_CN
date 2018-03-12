@@ -4,11 +4,12 @@
 package main
 
 import (
-	"./stack/stack"
+	"github.com/ghjan/the-way-to-go_ZH_CN/stack"
 	"bufio"
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func main() {
@@ -21,7 +22,9 @@ func main() {
 			fmt.Println("Input error !")
 			os.Exit(1)
 		}
-		token = token[0 : len(token)-2] // remove "\r\n"
+		token = strings.Replace(token, "\r", "", -1)
+		token = strings.Replace(token, "\n", "", -1)
+
 		// fmt.Printf("--%s--\n",token)  // debug statement
 		switch {
 		case token == "q": // stop als invoer = "q"
