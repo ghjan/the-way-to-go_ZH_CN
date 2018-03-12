@@ -19,7 +19,7 @@ func main() {
 		if err != nil {
 			fmt.Printf("An error occurred: %s\n", err)
 		}
-		if input == "S\r\n" { // Windows, on Linux it is "S\n"
+		if input == "S\r\n" || input == "S\n" { // Windows, on Linux it is "S\n"
 			fmt.Println("Here are the counts:")
 			fmt.Printf("Number of characters: %d\n", nrchars)
 			fmt.Printf("Number of words: %d\n", nrwords)
@@ -31,7 +31,9 @@ func main() {
 }
 
 func Counters(input string) {
-	nrchars += len(input) - 2 // -2 for \r\n
+	newInput := strings.Replace(input, "\r", "", -1)
+	newInput = strings.Replace(newInput, "\n", "", -1)
+	nrchars += len(newInput)
 	nrwords += len(strings.Fields(input))
 	nrlines++
 }

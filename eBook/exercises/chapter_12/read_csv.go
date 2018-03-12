@@ -33,7 +33,8 @@ func main() {
 			break
 		}
 		// remove \r and \n so 2(in Windows, in Linux only \n, so 1):
-		line = string(line[:len(line)-2])
+		line = strings.Replace(line, "\r", "", -1)
+		line = strings.Replace(line, "\n", "", -1)
 		//fmt.Printf("The input was: -%s-", line)
 
 		strSl := strings.Split(line, ";")
