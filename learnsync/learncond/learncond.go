@@ -7,6 +7,8 @@ import (
 )
 
 /*
+Go语言学习之sync包(临时对象池Pool、互斥锁Mutex、等待Cond)(the way to go)
+https://blog.csdn.net/wangshubo1989/article/details/77966432
 Cond
 
 Cond用于在并发环境下routine的等待和通知
